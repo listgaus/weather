@@ -25,7 +25,7 @@ export class WeatherStore extends Store<WeatherState> {
       name: info.name,
       description: res.weather[0].description,
       temp: Math.round(res.main.temp),
-      units: info.units === 'metric' ? 'C' : 'F',
+      units: info.units === 'Metric' ? 'C' : 'F',
       icon: `http://openweathermap.org/img/w/${res.weather[0].icon}.png`
     })
   });
