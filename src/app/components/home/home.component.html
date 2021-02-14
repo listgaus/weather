@@ -1,0 +1,11 @@
+<div class="container">
+  <p class="cities-list__title">
+    WEATHER CHECK
+  </p>
+ <div class="add-form"><add-form [options]='options' (onCityPicked)='addCity($event)'></add-form></div>
+
+  <mat-list role="list" class='cities-list__container'>
+    <city-info *ngFor='let city of cities' [city]='city'></city-info>
+  </mat-list>
+</div>
+

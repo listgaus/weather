@@ -1,0 +1,25 @@
+<form [formGroup]="citiesForm" (ngSubmit)="onSubmit()">
+
+  <select formControlName="name">
+    <option value="">Select City</option>
+    <option *ngFor="let option of options">{{option}}</option>
+  </select>
+  <select formControlName="units">
+    <option value="">Select Units</option>
+    <option>Metric</option>
+    <option>Imperial</option>
+  </select>
+  <button type="submit" [disabled]="citiesForm.invalid">+</button>
+</form>
+
+<div *ngIf="citiesForm.invalid && (citiesForm.dirty || citiesForm.touched)"
+    class="error">
+  <div *ngIf="citiesForm.get('name').errors && 
+  citiesForm.get('name').hasError('required')">
+    Please select a city
+  </div>
+  <div *ngIf="citiesForm.get('units').errors && 
+  citiesForm.get('units').hasError('required')">
+  Please select units
+  </div>
+</div>
